@@ -63,7 +63,10 @@ const updateWorkout = async (req, res) => {
 
     try {
         await Workout.findByIdAndUpdate(id, req.body)
-        res.status(200).json({mssg: "Successfully Updated"})
+
+        const workout = await Workout.findById(id)
+        
+        res.status(200).json(workout)
     }
 
     catch(err){
