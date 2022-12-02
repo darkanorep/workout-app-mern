@@ -19,6 +19,7 @@ const WorkoutDetails = ({workout}) => {
         <p><strong>Load in kg: {workout.load}</strong></p>
         <p>{workout.createdAt}</p>
         <button onClick={deleteWorkout}>Delete</button>
+        <a href={`${workout._id}`}><button>Update</button></a>
     </div>
   )
 }

@@ -23,7 +23,7 @@ const WorkoutForm = () => {
   
       if (!response.ok) {
         
-        console.log(setError(json.error))
+        setError(json.error)
       }
       if (response.ok) {
         setError(null)
@@ -38,19 +38,19 @@ const WorkoutForm = () => {
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <label>Workout Name: </label>
+            <label>Workout Name</label>
             <input
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
             />
-            <label>Reps: </label>
+            <label>Reps</label>
             <input
                 type="number"
                 onChange = {(e) => setReps(e.target.value)}
                 value={reps}
             />
-            <label>Load in kg: </label>
+            <label>Load</label>
             <input
                 type="number"
                 onChange={(e) => setLoad(e.target.value)}
