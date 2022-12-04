@@ -2,7 +2,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import View from './pages/View'
 
 function App() {
   return (
@@ -14,10 +13,6 @@ function App() {
             <Route
               path='/'
               element={<Home/>}
-            />
-            <Route
-              path='/:_id'
-              element={<View/>}
             />
           </Routes>
         </div>

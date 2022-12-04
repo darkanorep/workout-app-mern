@@ -1,8 +1,9 @@
 import React from 'react'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const WorkoutDetails = ({workout}) => {
 
-  const deleteWorkout = async () => {
+  const handleClick = async () => {
     const response = await fetch (`/api/workouts/${workout._id}`, {
       method: "DELETE"
     })
@@ -13,13 +14,12 @@ const WorkoutDetails = ({workout}) => {
   }
 
   return (
-    <div>
-        <h2>{workout.title}</h2>
-        <p><strong>Reps: {workout.reps}</strong></p>
-        <p><strong>Load in kg: {workout.load}</strong></p>
-        <p>{workout.createdAt}</p>
-        <button onClick={deleteWorkout}>Delete</button>
-        <a href={`${workout._id}`}><button>Update</button></a>
+    <div className="workout-details">
+      <h4>{workout.title}</h4>
+      <p><strong>Load (kg): </strong>{workout.load}</p>
+      <p><strong>Number of reps: </strong>{workout.reps}</p>
+      <p>{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}</p>
+      <span onClick={handleClick}><i className='bx bx-trash'></i></span>
     </div>
   )
 }
